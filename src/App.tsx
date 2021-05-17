@@ -1,25 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Route } from 'react-router-dom'
+import { createEndpointFromRoute } from './common/helpers/RouteHelpers';
+import Breeds from './components/Breeds/Breeds';
+import { Routes } from './common/enumerations/Routes';
+import { Layout } from 'antd';
+import AppHeader from './components/AppHeader/AppHeader';
+
+const { Content } = Layout
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <AppHeader />
+      <Content>
+        <Route path={`${createEndpointFromRoute(Routes.breeds)}`} component={Breeds} />
+      </Content>
+    </BrowserRouter>
   );
 }
 

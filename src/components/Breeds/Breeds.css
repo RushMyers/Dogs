@@ -1,0 +1,11 @@
+.breed-list-row::-webkit-scrollbar {
+   display: none;
+}
+
+.breed-description {
+   display: 'flex'
+}
+
+.breed-description-label {
+   font-weight: bold;
+}
